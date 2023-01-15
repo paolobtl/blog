@@ -10,6 +10,9 @@ tags:
 categories:
     - tag-manager
     - data-layer
+toc: true
+toc_label: "Tabella dei contenuti"
+#toc_icon: "heart"
 ---
 
 ## Introduzione
@@ -25,19 +28,19 @@ Per utilizzare il DataLayer, è necessario inserire un pezzo di codice JavaScrip
 Il DataLayer è un array di oggetti JavaScript che viene utilizzato per archiviare i dati in un formato strutturato, che può quindi essere facilmente utilizzato dalle tags e dai trigger di Google Tag Manager, o dalla funzione `gtag()` per raccogliere e inviare i dati a diverse piattaforme di analisi e pubblicità.
 Per capire il concetto di array di oggetti immaginiamo una cassettiera dove ogni cassetto è un oggetto mentre l'intero mobile è un array. Quindi il DataLayer è un contenitore di contenitori.
 
-
-<figure>
-    <img src="/assets/images/posts/2022/data-layer.jpg" alt="Rappresentazione accurata del Data Layer" style="width:50%">
-    <figcaption style="text-align: center;">Rappresentazione accurata del Data Layer</figcatpion>
-</figure>
+|![Rappresentazione accurata del Data Layer](/assets/images/posts/2022/data-layer.jpg)|
+|:--:|
+| Rappresentazione accurata del Data Layer |
 
 La sintassi JavaScript che indica un array sono due parentesi quadre `[]` mentre un oggetto è indicato dalle parentesi graffe `{}`. Consideriamo il seguente esempio:
-```Javascript
+
+```javascript
 dataLayer = [
     {event: 'pageView', pagePath: '/home'},
     {variable1 : 'value'}
 ]
 ```
+
 Come potrai vedere `dataLayer` contiene due oggetti (due cassetti) oguno di essi contenenti, rispettivamente, due e una proprietà. 
 Nel prossimo paragrafo vedremo come definire l'array `dataLayer` e come inviare i dati al suo interno.
 
@@ -54,7 +57,9 @@ Si crea il caos perché GTM modifica il metodo JavaScript `push()` che tutti gli
 Ridefinendo dataLayer, i tag di Tag Manger (o Ads/Analytics) non verranno più attivati.
 
 Consideriamo il seguente esempio:
-```Javascript
+
+
+```javascript
 (function(w,d,s,l,i){
     w[l]=w[l]||[];
     w[l].push({
@@ -69,16 +74,21 @@ Consideriamo il seguente esempio:
     f.parentNode.insertBefore(j,f);
     })
 (window,document,'script','dataLayer','GTM-XXXXXX');
-  ```
+```
+
+
 Come da [documentazione](https://developers.google.com/tag-platform/tag-manager/web) questo snippet di codice va inserito il più in alto possibile nella pagina HTML per fare in modo che Tag Manager venga caricato quanto prima.
 In questo codice, nella seconda riga, viene definita la variabile `dataLayer`.
 Ma cosa accadrebbe se volessi inviare anche i dati prsenti nello snippet di prima? Ad esempio il valore di `pagePath`?
 Subito dopo il codice di Tag Manager potrei fare:
-```Javascript
+
+
+```javascript
 dataLayer = [
     {pagePath: '/home'},
 ]
 ```
+
 
 In questo modo però andrei a cancellare tutti i dati caricati inizialmente da Tag Manager rendendo di fatto l'implementazione inutile.
 
@@ -100,7 +110,7 @@ in questo modo il Data Layer verrà definito solo una volta e tutte le successiv
 Per fare in modo che l'array `dataLayer` raccolga i dati che vogliamo inviare alle nostre piattaforme possiamo servirci del [metodo JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) `push()`.
 Il metodo `push()` aggiunge uno o più elementi alla fine di un array.
 Quindi volendo inviare nuovi dati al `dataLayer` nel mio sito userò il seguente codice:
-```Javascript
+```javascript
 dataLayer.push(
     {event: 'pageView', pagePath: '/home'},
     {variable1 : 'value'}}
@@ -115,7 +125,7 @@ L'utilizzo di gtag è alternativo a quello di Tag Manager, è sconsigliato utili
 
 Analizziamo il codice gtag utilizzato per definire, ad esempio, un'installazione di GA4
 
-```Javascript
+```javascript
 window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments)};
   gtag('js', new Date());
@@ -127,7 +137,7 @@ Questo snippet quindi crea il `dataLayer` solo se non già presente e definisce 
 In altre parole quando utilizzo il comando `gtag('config', 'G-xxxxxx');` i parametri tra parentesi (`'config'` e `'G-xxxxxx'`) vengono inviati al `dataLayer` utilizzando `push()`.
 
 
-## Vantaggi dell'utilizzo del  DataLayer
+### Vantaggi dell'utilizzo del  DataLayer
 Il Data Layer è uno dei concetti principali di Google Tag Manager, e del tagging di Google in generale, che garantisce la massima flessibilità, portabilità e facilità di implementazione. 
 Senza di esso, Tag Manager non funzionerebbe. 
 È ciò che fa funzionare correttamente la gestione dei tag. È la chiave per sbloccare il potenziale di Google Tag Manager.
@@ -139,7 +149,7 @@ La comodità più grande, a mio avviso, è la gestione temporale dei dati, ovver
 Ad esempio, possiamo decidere di inviare l'evento `form_submit` solo quando effettivament un form è stato inviato o di inviare i dati relativi ai prodotti visualizati solo quando effettivamente l'utente sta visionando quell'articolo.
 Mi rendo conto dell'ovvietà dell'affermazione, proviamo a pensare cosa accadrebbe se, invece, dovessimo inviare tutti i dati al caricamento di Tag Manager senza la possibilità di raccoglierne altri man mano che l'utente naviga il sito.
 
-## Le best practices per l'utilizzo del DataLayer di Google
+### Le best practices per l'utilizzo del DataLayer di Google
 Un aspetto importante che vale la pena sottolineare la pulizia e l'ordine nell'invio dei dati (ecco perché ho paragonato il Data Layer ad una cassettiera 😏).
 L'organizzazione del Data Layer dovrebbe rispondere ai seguenti requisiti:
 - Utilizzo di categorie logicamente pianificate
@@ -149,7 +159,7 @@ L'organizzazione del Data Layer dovrebbe rispondere ai seguenti requisiti:
 Immaginiamo di voler raccogliere i dati nella pagina del checkout e vogliamo inviare al `dataLayer` le seguenti variabili:
 `totaleCarrello`, `numeroDiArticoli`, `infoArticoli`.
 La soluzione migliore, a mio avviso, potrebbe essere quella di creare un oggetto contenente queste tre variabili , in altre parole creeremo un oggetto dentro un altro oggetto, quindi:
-```Javascript
+```javascript
 dataLayer.push({
     checkout: {
         totaleCarrello: 52,
@@ -183,10 +193,10 @@ Prima di raccogliere i dati con Tag Manager (o Analytics) potrebbe essere necess
    
    Questo è un modo semplice e veloce per vedere quali dati sono attualmente presenti nel livello dati; tuttavia, il test in questo modo è manuale e non è ideale per i test ripetitivi.
  
-<figure>
-    <img src="/assets/images/posts/2022/dataLayer-chrome-console.jpg" alt="Il livello dati visualizzato dalla console di Chrome"></img>
-    <figcaption style="text-align: center;">Il livello dati visualizzato dalla console di Chrome</figcaption>
-<figure>
+|![Il livello dati visualizzato nella console di Chrome](/assets/images/posts/2022/dataLayer-chrome-console.jpg)|
+|:--:|
+| Il livello dati visualizzato nella console di Chrome|
+
 1) 
    Usa un'estensione tipo [Datalayer checker](https://chrome.google.com/webstore/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke)
    Esistono molteplici estensioni per Chrome che ti permetteranno di controllare i dati presenti nel Data Layer, ti basterà cercare quella che più si avvicina alle tue necessità.

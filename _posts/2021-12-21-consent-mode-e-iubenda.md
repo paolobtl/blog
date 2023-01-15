@@ -7,8 +7,11 @@ tags:
     - iubenda
 categories:
     - tag-manager
+
+toc: true
+toc_label: "Tabella dei contenuti"
 ---
-## Introduzione
+### Introduzione
 
 Come visto in questo articolo Google ha introdotto la Consent Mode per aiutare gli inserzionisti a gestire i cookie a fini pubblicitari e statistici.  
 Questa funzionalità consente di regolare il comportamento dei tag di Google (e non solo) in base alle preferenze di consenso degli utenti.
@@ -62,7 +65,7 @@ Queste sono le categorie dei cookies presenti sul sito e saranno necessarie per 
 
 In questo sito ho aggiunto 3,4,5 in quanto sto utilizzando cookies pubblicitari, di analisi e di miglioramento dell'esperienza utente.
 
-## Consenso per categoria
+### Consenso per categoria
 ----------------------
 
 Le finalità sono raggruppate in 5 categorie (strettamente necessari, interazioni e funzionalità semplici, miglioramento dell’esperienza, misurazione, targeting e pubblicità), ciascuna identificata da un id (1, 2, 3, 4,5).
@@ -121,7 +124,7 @@ A seguire le finalità per ogni categoria:
 
 Quindi, se per esempio devi mostrare tutte e 5 le categorie dovrai indicare `"purposes": "1, 2, 3, 4, 5"`, ma se non devi mostrare Misurazione (id 4) indicherai `"purposes": "1, 2, 3, 5"` e così via.
 
-## Lo script
+### Lo script
 ---------
 
 Una volta scelte le impostazioni di Iubenda clicca _Salva_ in basso a destra. Nella schermata principale seleziona la voce Integra, qui troverai lo script.  
@@ -170,7 +173,7 @@ Qui sotto troverai uno script d'esempio, il tuo dovrà essere più o meno simile
     </script>
 ```
 
-### Installazione interamente via codice e integrazione con gTag.js
+#### Installazione interamente via codice e integrazione con gTag.js
 ---------------------------------------------------------------
 
 Copia nella sezione `<head>` del tuo sito questo script opportunamente modificato
@@ -250,7 +253,7 @@ Incollato questo codice la modalità di consenso sarà pronta e dovrai solamente
 
 Nota che il comando `consent, update` verrà inviato automaticamente dal banner di Iubenda
 
-### Installazione via codice e integrazione con Tag Manager
+#### Installazione via codice e integrazione con Tag Manager
 -------------------------------------------------------
 
 Copia nella sezione `<head>` del tuo sito questo script opportunamente modificato
@@ -328,7 +331,7 @@ Incollato questo codice la modalità di consenso sarà pronta e dovrai solamente
 
 Nota che il comando `consent, update` verrà inviato automaticamente dal banner di Iubenda
 
-### Implementazione mista e gestione semi-automatizzata in Tag Manager
+#### Implementazione mista e gestione semi-automatizzata in Tag Manager
 ------------------------------------------------------------------
 
 In questa implementazione useremo il template per la Consent Mode di Simo Ahava per gestire la modalità `default`
@@ -393,7 +396,7 @@ In questa implementazione useremo il template per la Consent Mode di Simo Ahava 
 
 
 *   Spunta la casella _Decodifica in formato URI il cookie_ e rinomina la variabile _Iubenda Policy Cookie_,
-*   Crea una variabile _Tabella delle espressioni regolari_ che prenda in input il cookie creato precedentemente, `{{Iubenda Policy Cookie}}`
+*   Crea una variabile _Tabella delle espressioni regolari_ che prenda in input il cookie creato precedentemente, `Iubenda Policy Cookie`
     *   Nei campi pattern inserisci "#":false e "#":true, dove il simbolo # rappresenta la categoria dei cookies. In questo caso ho inserito _"5":false_ e _"5":true_ affinché vengano letti i valori per la categoria della pubblicità.
     *   Nei campi output inserisci rispettivamente `denied` e `granted`.
     *   Spunta la casella _Imposta valore predefinito_ e scrivi `denied`.
@@ -415,13 +418,13 @@ In questa implementazione useremo il template per la Consent Mode di Simo Ahava 
 *   Seleziona l'attivatore, in basso cliccando sull'icona dei due insiemi
     *   Nella pagina di scelta dell'attivatore clicca il simbolo `'+'` in alto a destra
     *   Scegli _Inizializzazione del consenso_
-    *   Clicca sull'opzione _Alcune pagine_ e dal menù a tendina scegli la variabile __{{Iubenda Policy Cookie}}__
+    *   Clicca sull'opzione _Alcune pagine_ e dal menù a tendina scegli la variabile `Iubenda Policy Cookie`
     *   Imposta la regole su "_è uguale a_" e scrivi _undefined_ nel campo successivo, in questo modo lo script di default si attiverà solamente se l'utente non ha espresso alcuna preferenza
 
 [![Attivatore del tag](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-13.47.26-1024x414.png)](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-13.47.26.png)
 
 
-### Implementazione mista e gestione interamente via Tag Manager
+#### Implementazione mista e gestione interamente via Tag Manager
 ------------------------------------------------------------
 
 In questa implementazione useremo il template per la Consent Mode di [Simo Ahava](https://www.simoahava.com/custom-templates/consent-mode/) per gestire la modalità `default`
@@ -478,8 +481,8 @@ In questa implementazione useremo il template per la Consent Mode di [Simo Ahava
 [![Iubenda Policy Cookie](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-13.40.40-1024x414.png)](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-13.40.40.png)
 
 
-*   Spunta la casella _Decodifica in formato URI il cookie_ e rinomina la variabile _Iubenda Policy Cookie_,
-*   Crea una variabile _Tabella delle espressioni regolari_ che prenda in input il cookie creato precedentemente, `{{Iubenda Policy Cookie}}`
+*   Spunta la casella _Decodifica in formato URI il cookie_ e rinomina la variabile `Iubenda Policy Cookie`,
+*   Crea una variabile _Tabella delle espressioni regolari_ che prenda in input il cookie creato precedentemente, `Iubenda Policy Cookie`
     *   Nei campi pattern inserisci "#":false e "#":true, dove il simbolo # rappresenta la categoria dei cookies. In questo caso ho inserito _"5":false_ e _"5":true_ affinché vengano letti i valori per la categoria della pubblicità.
     *   Nei campi output inserisci rispettivamente `denied` e `granted`.
     *   Spunta la casella _Imposta valore predefinito_ e scrivi `denied`.
@@ -492,7 +495,7 @@ In questa implementazione useremo il template per la Consent Mode di [Simo Ahava
 *   Crea un nuovo tag e seleziona la barra azzurra in alto a destra, _Scopri più tipi di tag nella Galleria modelli della community_,
 *   Aggiungi il tag **Consent Mode (Google tags)** di _gtm-templates-simo-ahava_,
     *   Nella voce _Consent command_ seleziona `default`
-    *   Clicca il pulsante _Add Setting_ e seleziona la variabile __{{Consent Mode ad\_storage}}__ per il menù Advertising, __{{Consent Mode analytics\_storage}}__ per Analytics e _{{Consent Mode personalization\_storage}}_ per Personalization
+    *   Clicca il pulsante _Add Setting_ e seleziona la variabile `Consent Mode ad_storage` per il menù Advertising, `Consent Mode analytics_storage` per Analytics e `Consent Mode personalization_storage` per Personalization
     *   Clicca su _Aggiungi_ in alto a destra
 
 [![Tag Consent Default](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-14.10.03-1024x507.png)](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-14.10.03.png)
@@ -500,13 +503,13 @@ In questa implementazione useremo il template per la Consent Mode di [Simo Ahava
 *   Seleziona l'attivatore, in basso e clicca sul logo dei due insiemi
     *   Nella pagina di scelta dell'attivatore clicca il simbolo `'+'` in alto a destra
     *   Scegli _Inizializzazione del consenso_
-        *   Clicca sull'opzione _Alcune pagine_ e dal menù a tendina scegli la variabile _{{Iubenda Policy Cookie}}_
+        *   Clicca sull'opzione _Alcune pagine_ e dal menù a tendina scegli la variabile `Iubenda Policy Cookie`
         *   Imposta la regole su "_è uguale a_" e scrivi nel campo successivo, _undefined_, in questo modo lo script di default si attiverà solamente se l'utente non ha espresso alcuna preferenza
 
 [![Attivatore del tag Consent Default](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-13.47.26-1024x414.png)](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-13.47.26.png)
 
 *   Esegui la stessa procedura dal punto per il _Tag Consent Default_ e nella voce _Consent command_ seleziona `update`
-    *   Seleziona le variabili __{{Consent Mode ad\_storage}}__, _{{Consent Mode analytics\_storage}}_ e _{{Consent Mode personalization\_storage}}_ per i rispettivi campi
+    *   Seleziona le variabili `Consent Mode ad\_storage`, `Consent Mode analytics_storage` e `Consent Mode personalization_storage` per i rispettivi campi
 
 [![](https://analyticsitalia.it/wp-content/uploads/2021/12/Consent_update_tag-1024x507.png)](https://analyticsitalia.it/wp-content/uploads/2021/12/Consent_update_tag.png)
 
@@ -514,14 +517,14 @@ In questa implementazione useremo il template per la Consent Mode di [Simo Ahava
 *   Seleziona l'attivatore, in basso e clicca sul logo dei due insiemi
     *   Nella pagina di scelta dell'attivatore clicca il simbolo `'+'` in alto a destra
     *   Scegli _Inizializzazione del consenso_
-        *   Clicca sull'opzione _Alcune pagine_ e dal menù a tendina scegli la variabile _{{Iubenda Policy Cookie}}_
+        *   Clicca sull'opzione _Alcune pagine_ e dal menù a tendina scegli la variabile `Iubenda Policy Cookie`
         *   Imposta la regole su "_non contiene_" e scrivi nel campo successivo, _undefined_, in questo modo lo script di default si attiverà **solamente** se l'utente ha espresso una preferenza
 
 [![Attivatore Consent Update](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-14.13.11-1024x507.png)](https://analyticsitalia.it/wp-content/uploads/2021/12/Screenshot-2021-12-23-14.13.11.png)
 
 > Per scaricare il contenitore già pronto, [clicca qui](https://gist.githubusercontent.com/paolobtl/caf749a256d12d56de899076fb7f05ad/raw/3685e48dd9708aa0b603350927cf83da182be5b1/Iubenda_ConsentMode.json).
 
-## Considerazioni e consigli
+### Considerazioni e consigli
 -------------------------
 
 ### Perché due implementazioni simili per Tag Manager?
