@@ -3,10 +3,10 @@ title: "Consent Mode e Iubenda. Come configurare il consenso dei cookie"
 last_modified_at: 2021-12-21T20:00:23+02:00
 author: 'Paolo Bietolini'
 tags: 
-    - consent-mode
+    - consent mode
     - iubenda
 categories:
-    - tag-manager
+    - tag manager
 
 toc: true
 toc_label: "Tabella dei contenuti"

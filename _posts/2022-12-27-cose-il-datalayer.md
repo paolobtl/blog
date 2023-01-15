@@ -2,15 +2,17 @@
 title: "DataLayer - Cos'è e come sfruttarlo"
 last_modified_at: 2022-12-27T20:00:23+02:00
 author: 'Paolo Bietolini'
+
 tags: 
     - dataLayer 
     - google tag 
     - tag manager
     - gtag
 categories:
-    - tag-manager
-    - data-layer
-#toc_icon: "heart"
+    - tag manager
+    - data layer
+
+# _pages
 
 ---
 
@@ -27,9 +29,7 @@ Per utilizzare il DataLayer, è necessario inserire un pezzo di codice JavaScrip
 Il DataLayer è un array di oggetti JavaScript che viene utilizzato per archiviare i dati in un formato strutturato, che può quindi essere facilmente utilizzato dalle tags e dai trigger di Google Tag Manager, o dalla funzione `gtag()` per raccogliere e inviare i dati a diverse piattaforme di analisi e pubblicità.
 Per capire il concetto di array di oggetti immaginiamo una cassettiera dove ogni cassetto è un oggetto mentre l'intero mobile è un array. Quindi il DataLayer è un contenitore di contenitori.
 
-|[![Rappresentazione accurata del Data Layer](/assets/images/posts/2022/data-layer.jpg)](/assets/images/posts/2022/data-layer.jpg)|
-|:--:|
-| Rappresentazione accurata del Data Layer |
+{% include figure image_path="/assets/images/posts/2022/data-layer.jpg" alt="this is a placeholder image" caption="Rappresentazione accurata del Data Layer" %}
 
 La sintassi JavaScript che indica un array sono due parentesi quadre `[]` mentre un oggetto è indicato dalle parentesi graffe `{}`. Consideriamo il seguente esempio:
 
@@ -191,10 +191,8 @@ Prima di raccogliere i dati con Tag Manager (o Analytics) potrebbe essere necess
    - Premere invio.
    
    Questo è un modo semplice e veloce per vedere quali dati sono attualmente presenti nel livello dati; tuttavia, il test in questo modo è manuale e non è ideale per i test ripetitivi.
- 
-|[![Il livello dati visualizzato nella console di Chrome](/assets/images/posts/2022/dataLayer-chrome-console.jpg)](/assets/images/posts/2022/dataLayer-chrome-console.jpg)|
-|:--:|
-| Il livello dati visualizzato nella console di Chrome|
+
+ {% include figure image_path="/assets/images/posts/2022/dataLayer-chrome-console.jpg" alt="this is a placeholder image" caption="Il livello dati visualizzato nella console di Chrome" %}
 
 1) 
    Usa un'estensione tipo [Datalayer checker](https://chrome.google.com/webstore/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke)

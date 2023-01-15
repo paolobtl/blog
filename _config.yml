@@ -25,12 +25,14 @@ locale: "it-IT"
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-
+masthead_title           : " " # overrides the website title displayed in the masthead, use " " for no title
+date_format: "%Y-%m-%d"
+repository: "paolobtl/blog"
 
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
+
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -65,19 +67,20 @@ author:
   name   : "Paolo Bietolini"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "Analytics Developer"
+  location: "Kraków, 🇵🇱"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://paolobietolini.xyz"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-mastodon-square"
-      url: "https://twitter.com/"
+    - label: "Mastodon"
+      icon: "fab fa-mastodon"
+      url: "https://mastodon.uno/@plbtl"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/paolobtl"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://instagram.com/paoloinpolonia"
 
 footer:
   links:
@@ -105,8 +108,14 @@ defaults:
       related: true
       toc: true
       toc_label: "Tabella dei contenuti"
+      toc_sticky: true
+      excerpt: ""
+      show_date: true
       header:
-        image: https://source.unsplash.com/random/1920x1080/?abstract?orientation=landscape
+        overlay_image: https://source.unsplash.com/random/1920x602/?abstract?orientation=landscape
+        verlay_filter: 0.5
+        caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  
   # _pages
   - scope:
       path: "_pages"
