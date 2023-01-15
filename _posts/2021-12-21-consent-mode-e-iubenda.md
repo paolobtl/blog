@@ -13,7 +13,7 @@ toc_label: "Tabella dei contenuti"
 ---
 ### Introduzione
 
-Come visto in questo articolo Google ha introdotto la Consent Mode per aiutare gli inserzionisti a gestire i cookie a fini pubblicitari e statistici.  
+Google ha introdotto la Consent Mode per aiutare gli inserzionisti a gestire i cookie a fini pubblicitari e statistici.  
 Questa funzionalità consente di regolare il comportamento dei tag di Google (e non solo) in base alle preferenze di consenso degli utenti.
 
 Con la Consent Mode i relativi cookie, pubblicitari o statistici, verranno salvati nel computer dell'utente solamente se il consenso sarà stato fornito.

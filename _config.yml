@@ -24,6 +24,9 @@ github_username: plbtl
 locale: "it-IT"
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
+logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+
 
 # Build settings
 markdown: kramdown
@@ -100,6 +103,10 @@ defaults:
       comments: true
       share: true
       related: true
+      toc: true
+      toc_label: "Tabella dei contenuti"
+      header:
+        image: https://source.unsplash.com/random/1920x1080/?abstract?orientation=landscape
   # _pages
   - scope:
       path: "_pages"

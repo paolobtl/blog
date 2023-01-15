@@ -10,9 +10,8 @@ tags:
 categories:
     - tag-manager
     - data-layer
-toc: true
-toc_label: "Tabella dei contenuti"
 #toc_icon: "heart"
+
 ---
 
 ## Introduzione
@@ -28,7 +27,7 @@ Per utilizzare il DataLayer, è necessario inserire un pezzo di codice JavaScrip
 Il DataLayer è un array di oggetti JavaScript che viene utilizzato per archiviare i dati in un formato strutturato, che può quindi essere facilmente utilizzato dalle tags e dai trigger di Google Tag Manager, o dalla funzione `gtag()` per raccogliere e inviare i dati a diverse piattaforme di analisi e pubblicità.
 Per capire il concetto di array di oggetti immaginiamo una cassettiera dove ogni cassetto è un oggetto mentre l'intero mobile è un array. Quindi il DataLayer è un contenitore di contenitori.
 
-|![Rappresentazione accurata del Data Layer](/assets/images/posts/2022/data-layer.jpg)|
+|[![Rappresentazione accurata del Data Layer](/assets/images/posts/2022/data-layer.jpg)](/assets/images/posts/2022/data-layer.jpg)|
 |:--:|
 | Rappresentazione accurata del Data Layer |
 
@@ -193,7 +192,7 @@ Prima di raccogliere i dati con Tag Manager (o Analytics) potrebbe essere necess
    
    Questo è un modo semplice e veloce per vedere quali dati sono attualmente presenti nel livello dati; tuttavia, il test in questo modo è manuale e non è ideale per i test ripetitivi.
  
-|![Il livello dati visualizzato nella console di Chrome](/assets/images/posts/2022/dataLayer-chrome-console.jpg)|
+|[![Il livello dati visualizzato nella console di Chrome](/assets/images/posts/2022/dataLayer-chrome-console.jpg)](/assets/images/posts/2022/dataLayer-chrome-console.jpg)|
 |:--:|
 | Il livello dati visualizzato nella console di Chrome|
 
