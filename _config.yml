@@ -16,16 +16,15 @@
 title: Paolo Bietolini
 email: hello@paolobietolini.xyz
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
+  Paolo Bietolini è un esperto analytics developer. 
+  Questo è un blog dedicato allo sviluppo di analisi web e al tag management.
+# twitter_username: username
 github_username: plbtl
 locale: "it-IT"
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : " " # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 date_format: "%Y-%m-%d"
 repository: "paolobtl/blog"
 
